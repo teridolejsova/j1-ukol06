@@ -49,12 +49,16 @@ public class Aplikace extends JFrame {
         //TODO implementovat formulář podle zadání
 
         husySpinner = new JSpinner();
+        SpinnerNumberModel modelHusy = new SpinnerNumberModel(0,0,100,1);
+        husySpinner.setModel(modelHusy);
         husyLabel = new JLabel("Husy");
         husyLabel.setLabelFor(husySpinner);
         add(husyLabel);
         add(husySpinner);
 
         kraliciSpinner = new JSpinner();
+        SpinnerNumberModel modelKralici = new SpinnerNumberModel(0,0,100,1);
+        kraliciSpinner.setModel(modelKralici);
         kraliciLabel = new JLabel("Králíci");
         kraliciLabel.setLabelFor(kraliciSpinner);
         add(kraliciLabel);
