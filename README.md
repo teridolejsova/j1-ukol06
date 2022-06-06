@@ -54,12 +54,12 @@ Místo `JTextField` můžete použít `JSpinner`, což je komponenta, která umo
 často právě pro zadávání čísel – neumožní zadat jiné znaky, než číslice, a navíc umožní uživateli jedním kliknutím
 zvýšit nebo snížit hodnotu (typicky o jedničku, ale lze to změnit). V jednodušší variantě vytvoříte nový `JSpinner`
 voláním prázdného konstruktoru `new JSpinner()`. Tím vznikne číselný spinner s výchozí hodnotou 0, který krokuje po jedné
-a nemá žádné omezení (kladné ani záporné). Zadanou hodnotu pak získáš voláním metody `getObject()` – výsledek však budete
+a nemá žádné omezení (kladné ani záporné). Zadanou hodnotu pak získáš voláním metody `getValue()` – výsledek však budete
 muset přetypovat na `Integer`:
 
 ```java
 JSpinner spinner = new JSpinner();
-int cislo4 = (Integer) spinner.getObject();
+int cislo4 = (Integer) spinner.getValue();
 ```
 
 # Bonus 2
