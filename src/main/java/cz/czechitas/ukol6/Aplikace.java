@@ -49,26 +49,35 @@ public class Aplikace extends JFrame {
         //TODO implementovat formulář podle zadání
 
         husyField = new JTextField();
+        husyField.setHorizontalAlignment(JTextField.TRAILING);
         husyLabel = new JLabel("Husy");
         husyLabel.setLabelFor(husyField);
         add(husyLabel);
         add(husyField);
 
         kraliciField = new JTextField();
+        kraliciField.setHorizontalAlignment(JTextField.TRAILING);
         kraliciLabel = new JLabel("Králíci");
         kraliciLabel.setLabelFor(kraliciField);
         add(kraliciLabel);
         add(kraliciField);
 
+
         add(createButtonBar(),"span");
 
+
         pocetHlavField = new JTextField();
+        pocetHlavField.setHorizontalAlignment(JTextField.TRAILING);
+        pocetHlavField.setEditable(false);
         pocetHlavLabel = new JLabel("Počet hlav");
         pocetHlavLabel.setLabelFor(pocetHlavField);
         add(pocetHlavLabel);
         add(pocetHlavField);
 
         pocetNohouField = new JTextField();
+        pocetNohouField.setHorizontalAlignment(JTextField.TRAILING);
+        pocetNohouField.setEditable(false);
+        pocetHlavField.isEnabled();
         pocetNohouLabel = new JLabel("Počet nohou");
         pocetNohouLabel.setLabelFor(pocetNohouField);
         add(pocetNohouLabel);
@@ -96,6 +105,7 @@ public class Aplikace extends JFrame {
         int pocetHlavCelkem = (kraliciHlavyCislo+husyHlavyCislo);
         String pocetHlavCelkemtext = Integer.toString(pocetHlavCelkem);
         System.out.println("Počet hlav:"+ pocetHlavCelkemtext);
+        pocetHlavField.setText(pocetHlavCelkemtext);
 
         String kraliciNohytext = kraliciField.getText();
         int kraliciNohyCislo = Integer.parseInt(kraliciNohytext);
@@ -104,11 +114,7 @@ public class Aplikace extends JFrame {
         int pocetNohouCelkem = (kraliciNohyCislo*4) +(husynohyCislo*2);
         String pocetNohouCelkemtext = Integer.toString(pocetNohouCelkem);
         System.out.println("Počet nohou:"+ pocetNohouCelkemtext);
-
-
-
-
-
+        pocetNohouField.setText(pocetNohouCelkemtext);
 
     }
 
