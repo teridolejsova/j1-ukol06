@@ -9,6 +9,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class Aplikace extends JFrame {
+    private JLabel husyLabel;
+    private JLabel kraliciLabel;
+    private JLabel pocetHlavLabel;
+    private JLabel pocetNohouLabel;
+
+    private JTextField husyField;
+    private JTextField kraliciField;
+    private JTextField pocetHlavField;
+    private JTextField pocetNohouField;
+
+
+    private JButton vypocitatButton;
+
+
+
 
     public static void main(String[] args) {
         FlatLightLaf.setup();
@@ -33,7 +48,68 @@ public class Aplikace extends JFrame {
 
         //TODO implementovat formulář podle zadání
 
+        husyField = new JTextField();
+        husyLabel = new JLabel("Husy");
+        husyLabel.setLabelFor(husyField);
+        add(husyLabel);
+        add(husyField);
+
+        kraliciField = new JTextField();
+        kraliciLabel = new JLabel("Králíci");
+        kraliciLabel.setLabelFor(kraliciField);
+        add(kraliciLabel);
+        add(kraliciField);
+
+        add(createButtonBar(),"span");
+
+        pocetHlavField = new JTextField();
+        pocetHlavLabel = new JLabel("Počet hlav");
+        pocetHlavLabel.setLabelFor(pocetHlavField);
+        add(pocetHlavLabel);
+        add(pocetHlavField);
+
+        pocetNohouField = new JTextField();
+        pocetNohouLabel = new JLabel("Počet nohou");
+        pocetNohouLabel.setLabelFor(pocetNohouField);
+        add(pocetNohouLabel);
+        add(pocetNohouField);
+
+
         pack();
+
+        vypocitatButton.addActionListener(this::handleVypocitat);
+    }
+    private JPanel createButtonBar(){
+        vypocitatButton = new JButton("Vypočítat");
+        JPanel buttonBar = new JPanel(new MigLayout(null, "[right, grow]"));
+        buttonBar.add(vypocitatButton);
+        return buttonBar;
+
+    }
+
+    private void handleVypocitat (ActionEvent actionEvent){
+        System.out.println("Počítám..");
+        String kraliciHlavyText = kraliciField.getText();
+        int kraliciHlavyCislo = Integer.parseInt(kraliciHlavyText);
+        String husyHlavyText = husyField.getText();
+        int husyHlavyCislo = Integer.parseInt(husyHlavyText);
+        int pocetHlavCelkem = (kraliciHlavyCislo+husyHlavyCislo);
+        String pocetHlavCelkemtext = Integer.toString(pocetHlavCelkem);
+        System.out.println("Počet hlav:"+ pocetHlavCelkemtext);
+
+        String kraliciNohytext = kraliciField.getText();
+        int kraliciNohyCislo = Integer.parseInt(kraliciNohytext);
+        String husyNohyText = husyField.getText();
+        int husynohyCislo = Integer.parseInt(husyNohyText);
+        int pocetNohouCelkem = (kraliciNohyCislo*4) +(husynohyCislo*2);
+        String pocetNohouCelkemtext = Integer.toString(pocetNohouCelkem);
+        System.out.println("Počet nohou:"+ pocetNohouCelkemtext);
+
+
+
+
+
+
     }
 
 }
